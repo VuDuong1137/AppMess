@@ -6,6 +6,7 @@ target 'APPMesenger' do
   use_frameworks!
 
   # Pods for APPMesenger
+
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
     pod 'Firebase/Firestore'
