@@ -62,7 +62,7 @@ class MainRegisterViewController: UIViewController {
         text.backgroundColor = .white
         text.textColor = .black
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.placeholder = "🔒 Retype Password"
+        text.placeholder = "Biệt Danh"
         text.textAlignment = .center
         text.alpha = 0.4
         
@@ -76,7 +76,7 @@ class MainRegisterViewController: UIViewController {
         text.backgroundColor = .white
         text.textColor = .black
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.placeholder = "👁 Full Your Name"
+        text.placeholder = "Full Your Name"
         text.textAlignment = .center
         text.alpha = 0.4
         
@@ -209,56 +209,56 @@ class MainRegisterViewController: UIViewController {
     }
     
     @objc func handTap(){
-       // presentPhotoActioSheet()
-                // cach1-1
-                print("Tap")
-                let alert:UIAlertController = UIAlertController(title: "Thông Báo", message: "chọn", preferredStyle: UIAlertController.Style.alert)
-                //khi ấn vào button thì nó sẽ sảy ra hành động
-                let alertButonPhotto: UIAlertAction = UIAlertAction(title: "PhoTo", style: UIAlertAction.Style.default) { (UIAlertAction) in
-        
-                    if (UIImagePickerController.isSourceTypeAvailable(.photoLibrary)){
-        
-                    // sử dụng uiimgePick để truy cập vào thư viện ảnh
-                    let imgPickker = UIImagePickerController()
-                    // truy cập vào thứ viện ảnh của máy
-                    imgPickker.sourceType = .photoLibrary
-                    // gần giống như tableview
-                    imgPickker.delegate = self
-                    // không cho nó thay đổi tấm hính
-                    imgPickker.allowsEditing = false
-                    self.present(imgPickker,animated: true, completion: nil)
-                    } else {
-                        print("NO Photolibarary")
-                    }
-                }
-        
-        
-                let alertButoncamera:UIAlertAction = UIAlertAction(title: "Camera", style: UIAlertAction.Style.default) { (UIAlertAction) in
-                    // kiểm tra có camera hay ko
-                    // có thì thực hiện các hành động sau
-        
-                    if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera)) {
-        
-        
-                    // sử dụng uiimgePick để truy cập vào thư viện ảnh
-                    let imgPickker = UIImagePickerController()
-                    // truy cập vào máy ảnh của máy
-                    imgPickker.sourceType = .camera
-                    imgPickker.delegate = self
-                    // không cho nó thay đổi tấm hính
-                    imgPickker.allowsEditing = false
-                    self.present(imgPickker,animated: true, completion: nil)
-                    } else {
-                        print("No Camera")
-                    }
-        
-        
-        
-                }
-                alert.addAction(alertButonPhotto)
-                alert.addAction(alertButoncamera)
-        
-                self.present(alert,animated: true,completion: nil)
+        presentPhotoActioSheet()
+//                // cach1-1
+//                print("Tap")
+//                let alert:UIAlertController = UIAlertController(title: "Thông Báo", message: "chọn", preferredStyle: UIAlertController.Style.alert)
+//                //khi ấn vào button thì nó sẽ sảy ra hành động
+//                let alertButonPhotto: UIAlertAction = UIAlertAction(title: "PhoTo", style: UIAlertAction.Style.default) { (UIAlertAction) in
+//
+//                    if (UIImagePickerController.isSourceTypeAvailable(.photoLibrary)){
+//
+//                    // sử dụng uiimgePick để truy cập vào thư viện ảnh
+//                    let imgPickker = UIImagePickerController()
+//                    // truy cập vào thứ viện ảnh của máy
+//                    imgPickker.sourceType = .photoLibrary
+//                    // gần giống như tableview
+//                    imgPickker.delegate = self
+//                    // không cho nó thay đổi tấm hính
+//                    imgPickker.allowsEditing = false
+//                    self.present(imgPickker,animated: true, completion: nil)
+//                    } else {
+//                        print("NO Photolibarary")
+//                    }
+//                }
+//
+//
+//                let alertButoncamera:UIAlertAction = UIAlertAction(title: "Camera", style: UIAlertAction.Style.default) { (UIAlertAction) in
+//                    // kiểm tra có camera hay ko
+//                    // có thì thực hiện các hành động sau
+//
+//                    if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera)) {
+//
+//
+//                    // sử dụng uiimgePick để truy cập vào thư viện ảnh
+//                    let imgPickker = UIImagePickerController()
+//                    // truy cập vào máy ảnh của máy
+//                    imgPickker.sourceType = .camera
+//                    imgPickker.delegate = self
+//                    // không cho nó thay đổi tấm hính
+//                    imgPickker.allowsEditing = false
+//                    self.present(imgPickker,animated: true, completion: nil)
+//                    } else {
+//                        print("No Camera")
+//                    }
+//
+//
+//
+//                }
+//                alert.addAction(alertButonPhotto)
+//                alert.addAction(alertButoncamera)
+//
+//                self.present(alert,animated: true,completion: nil)
         
         
     }
@@ -282,6 +282,8 @@ class MainRegisterViewController: UIViewController {
                         alert.addAction(btn)
                         self.present(alert, animated: true, completion: nil)
                     }
+                    
+                    
                 }
                 // khi đăng nhập thành công
                 
@@ -360,15 +362,101 @@ class MainRegisterViewController: UIViewController {
     
     
 }
-
-// chèn thêm hai thư viện để sử dụng thư viên ảnh của máy
-extension MainRegisterViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate{
-
-    // khi cọn về photo hay camera nó sẽ chọn vào hàm bên dưới này
-
+//
+//// chèn thêm hai thư viện để sử dụng thư viên ảnh của máy
+//extension MainRegisterViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+//
+//    // khi cọn về photo hay camera nó sẽ chọn vào hàm bên dưới này
+//
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//
+//       // info là biến mà hàm trên cung cấp
+//        // khi chúng ta chọn hình thì nó sẽ chả về cho chúng ta một cái info và chúng ra cũng chưa biết nó kiểu gì thì ta ép nó về kiểu image
+//        let chooseimage = info[.originalImage] as! UIImage
+//        // tại vì ảnh của các máy iphone 10 11 co độ phân giai cao nên ta phải   giảm độ phân giải của tấm hình để up lên cerver
+//        // khiểm tra kích thươc tâm hình đã đọn bằng bao nhiêu
+//        let imgvalue = max(chooseimage.size.width,chooseimage.size.height)
+//
+//        if(imgvalue > 2000){
+//            // nếu imgeValue này lớn hơn 3000 thì cho độ phân giải tấm hình giảm nhỏ nhất ta tạo một biến var imgeData: Data!
+//            // dể giảm đọ phân giải tao làm như sau
+//            imgDAta = chooseimage.jpegData(compressionQuality: 0.1)
+//        } else  if (imgvalue > 1000){
+//            imgDAta = chooseimage.jpegData(compressionQuality: 0.3)
+//
+//
+//        }else{
+//            imgDAta = chooseimage.pngData()
+//        }
+//
+//        // khi chọn xong rồi tôi lấy cái hình tôi vừa chọn hiển thị ra màn hình luôn
+//        imge2.image = UIImage(data: imgDAta)
+//
+//        // khi chọn xong rồi thì hộp thoại cần đóng đi
+//        dismiss(animated: true, completion: nil)
+//
+//
+//
+//    }
+//}
+extension MainRegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func  presentPhotoActioSheet() {
+        // kiểu thông báo đẩy từ dưới lên
+        let actionsheet = UIAlertController(title: "Thông báo ", message: "Bạn sẽ chọn một bức hình bạn yêu thích", preferredStyle: .actionSheet)
+        // cách 1 thêm nut trong actionSheet
+        actionsheet.addAction(UIAlertAction(title: "Cancel", style: .cancel,
+                                            handler: nil))
+        actionsheet.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { [weak self] (camera) in
+            self?.presentCamera()
+            
+        }))
+        actionsheet.addAction(UIAlertAction(title: "Chose Photo", style: .default, handler: { [weak self] (libary) in
+            self?.PresentPhotolibary()
+            
+        }))
+        // cách 2 thêm nut trong actionSheet
+//        let cancle = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//        actionsheet.addAction(cancle)
+        present(actionsheet, animated: true, completion: nil)
+        
+    }
+    
+    func presentCamera() {
+        // nếu có camera thi truy xuát vào
+        if (UIImagePickerController.isSourceTypeAvailable(.camera)){
+            // khới tạo biến để truy cập đến tác vụ uiimagePick
+                   let vc = UIImagePickerController()
+                   vc.sourceType = .camera
+                   vc.delegate = self
+                   vc.allowsEditing = true
+                   present(vc,animated: true,completion: nil)
+               } else {
+            let aleart = UIAlertController(title: "Thông báo", message: "đang chạy trên SIMULATOR làm gi có máy ảnh mà chụp ", preferredStyle: .alert)
+            aleart.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+            present(aleart,animated: true, completion: nil)
+               }
+       
+    }
+    func PresentPhotolibary() {
+        if (UIImagePickerController.isSourceTypeAvailable(.photoLibrary)){
+            let vc = UIImagePickerController()
+            vc.sourceType = .photoLibrary
+            vc.delegate = self
+            vc.allowsEditing = true
+            present(vc,animated: true,completion: nil)
+        } else {
+            print("không có thư viện ảnh")
+        }
+       
+    }
+    
+    
+    // khi chọn về photo hay camera nó sẽ chọn vào hàm bên dưới này
+    // hàm đã kết thúc phương thức truyền thông tin
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-
-       // info là biến mà hàm trên cung cấp
+        /// cach 1 chọn anh
+        // info là biến mà hàm trên cung cấp
         // khi chúng ta chọn hình thì nó sẽ chả về cho chúng ta một cái info và chúng ra cũng chưa biết nó kiểu gì thì ta ép nó về kiểu image
         let chooseimage = info[.originalImage] as! UIImage
         // tại vì ảnh của các máy iphone 10 11 co độ phân giai cao nên ta phải   giảm độ phân giải của tấm hình để up lên cerver
@@ -386,14 +474,46 @@ extension MainRegisterViewController: UIImagePickerControllerDelegate,UINavigati
         }else{
             imgDAta = chooseimage.pngData()
         }
+        
+        
+        let acttyvity : UIActivityIndicatorView = UIActivityIndicatorView()
+        acttyvity.color = .systemPink
+        acttyvity.frame = self.view.frame
+        self.view.addSubview(acttyvity)
+        acttyvity.center = self.view.center
+        acttyvity.startAnimating()
+        
+        DispatchQueue.global().async {
+            for indct in 1...10000{
+                print(indct)
+            }
+            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 2) {
+               DispatchQueue.main.async {
+                   
+                   // khi chọn xong rồi tôi lấy cái hình tôi vừa chọn hiển thị ra màn hình luôn
+                   self.imge2.image = UIImage(data: self.imgDAta)
+                   acttyvity.stopAnimating()
+               }
+                
+            }
+            
+            
+        }
+        
 
-        // khi chọn xong rồi tôi lấy cái hình tôi vừa chọn hiển thị ra màn hình luôn
-        imge2.image = UIImage(data: imgDAta)
+        
 
         // khi chọn xong rồi thì hộp thoại cần đóng đi
-        dismiss(animated: true, completion: nil)
-
-
+            picker.dismiss(animated: true, completion: nil)
 
     }
+//         Cach 2 ngắng hơn rất nhiều
+//    picker.dismiss(animated: true, completion: nil)
+//        guard let selecterImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+//            return
+//        }
+//        self.imge2.image = selecterImage
+//    }
+    
+
 }

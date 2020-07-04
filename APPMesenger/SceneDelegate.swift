@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScree
         
-        let Mvc = MainRegisterViewController()
+        let Mvc = LoginViewController()
         Mvc.modalPresentationStyle = .fullScreen
         window?.rootViewController = Mvc
         window?.makeKeyAndVisible()

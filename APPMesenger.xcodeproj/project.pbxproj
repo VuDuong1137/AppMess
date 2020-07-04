@@ -16,6 +16,7 @@
 		A20E16B3248B67D500883ADC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20E16B1248B67D500883ADC /* LaunchScreen.storyboard */; };
 		A20E16BB248B727200883ADC /* MainRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20E16BA248B727200883ADC /* MainRegisterViewController.swift */; };
 		A278ECAA24AE191000F00E18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A278ECA924AE191000F00E18 /* GoogleService-Info.plist */; };
+		A278ECAC24AF1BE600F00E18 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A278ECAB24AF1BE600F00E18 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		A20E16B4248B67D500883ADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A20E16BA248B727200883ADC /* MainRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRegisterViewController.swift; sourceTree = "<group>"; };
 		A278ECA924AE191000F00E18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A278ECAB24AF1BE600F00E18 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B47A9E442469E9D1B627572E /* Pods_APPMesenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APPMesenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 				A20E16B1248B67D500883ADC /* LaunchScreen.storyboard */,
 				A20E16B4248B67D500883ADC /* Info.plist */,
 				A20E16BA248B727200883ADC /* MainRegisterViewController.swift */,
+				A278ECAB24AF1BE600F00E18 /* LoginViewController.swift */,
 			);
 			path = APPMesenger;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				A20E16BB248B727200883ADC /* MainRegisterViewController.swift in Sources */,
 				A20E16AB248B67D400883ADC /* ViewController.swift in Sources */,
 				A20E16A7248B67D400883ADC /* AppDelegate.swift in Sources */,
+				A278ECAC24AF1BE600F00E18 /* LoginViewController.swift in Sources */,
 				A20E16A9248B67D400883ADC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
