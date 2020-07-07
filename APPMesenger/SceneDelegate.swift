@@ -21,13 +21,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScree
         
-        let Mvc = LoginViewController()
+        let Mvc = MainRegisterViewController()
         Mvc.modalPresentationStyle = .fullScreen
         window?.rootViewController = Mvc
         window?.makeKeyAndVisible()
         
-        
     }
+    
+   
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

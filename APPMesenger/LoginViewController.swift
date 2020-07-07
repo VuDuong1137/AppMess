@@ -81,6 +81,16 @@ class LoginViewController: UIViewController {
         return btn
     }()
     
+       fileprivate func GoToChat() {
+           
+              // đăng nhập thành công chuyển qua màn hình chat
+              let vc = CharViewController()
+//              let nav: UINavigationController = UINavigationController(rootViewController: vc)
+//              nav.modalPresentationStyle = .fullScreen
+        vc.modalPresentationStyle = .fullScreen
+            self.present(vc,animated: true, completion: nil)
+          
+   }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,9 +99,19 @@ class LoginViewController: UIViewController {
         view.insertSubview(imgae, at: 0)
         setuplayout()
         btn.addTarget(self, action: #selector(Tap), for: .touchUpInside)
+        btn2.addTarget(self, action: #selector(TapRegister), for: .touchUpInside)
+        Getthecurrentlysignedinuser()
         
         
-        
+        // gọi hầm Logout đê ngắt kết nối vs firebase
+        // hay là đăng xuất khỏi app
+          let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+
         
     }
     func setuplayout() {
@@ -133,11 +153,17 @@ class LoginViewController: UIViewController {
         
         
     }
+    @objc func TapRegister(){
+        let vc = MainRegisterViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+    }
     
     @objc func Tap(){
         
         
         let ativity: UIActivityIndicatorView = UIActivityIndicatorView()
+        
         ativity.color = .red
         self.view.addSubview(ativity)
         // sét cho nó phủ hết view chính dể tay mình ko chạm được khí đợi nó load
@@ -147,39 +173,51 @@ class LoginViewController: UIViewController {
         
         Auth.auth().signIn(withEmail: textFieldemail.text!, password: textField1Password.text!) { (ueser, eror) in
             
-            
-            
             if eror == nil{
+                // nếu không có lỗi minh làm gì trong đây
+                
+                self.GoToChat()
+                ativity.stopAnimating()
                 
                 print("thành công")
-                
-                
-                
             } else {
                 DispatchQueue.global().async {
-                    for index in 1...1000{
+                    for index in 1...10{
                         print(index)
                     }
-                   
-                        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1) {
-                             DispatchQueue.main.async {
-                             ativity.stopAnimating()
+               DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1) {
+                        DispatchQueue.main.async {
+                            ativity.stopAnimating()
                             let alrt = UIAlertController(title: "Thông Báo", message: "Email hoặc Password không chính xác", preferredStyle: .alert)
                             alrt.addAction(UIAlertAction(title: "ok", style: .cancel, handler: nil))
                             self.present(alrt, animated: true, completion: nil)
-                            
                         }
-                        
-                        
                     }
-                    
                 }
+            }
+        }
+    }
+    
+    
+   // kiêm tra người dùng đã đăng nhập hay chuea
+    // nhận diện người dùng đã đăng nhập hay chưa
+    func Getthecurrentlysignedinuser(){
+        
+        Firebase.Auth.auth().addStateDidChangeListener { (auth, user) in
+            // nếu có người đăng nhập rồi thì làm gi ở đó và ngược lại
+            if user != nil {
+                print(user?.email)
+                self.GoToChat()
+                print("Đăng nhập rồi")
+            } else {
                 
-                
-                
-                
+                print("chưa đăng nhập")
             }
         }
     }
     
 }
+
+
+
+
